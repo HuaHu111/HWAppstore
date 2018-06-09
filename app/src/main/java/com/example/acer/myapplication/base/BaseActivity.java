@@ -1,4 +1,4 @@
-package com.example.acer.myapplication;
+package com.example.acer.myapplication.base;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.example.acer.myapplication.AppActivityManager;
+import com.example.acer.myapplication.R;
 
 import java.lang.reflect.Field;
 
@@ -39,7 +42,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     //初始化view
-    private void initview() {
+    public void initview() {
 
     }
 
@@ -69,7 +72,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     //初始化布局
-    private void initlayout() {
+    public void initlayout() {
 
     }
 

@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
     <string name="client_app_name">应用市场</string>
     <string name="str_loading">正在加载，请稍候…</string>
     <string name="setting_network">设置网络</string>
     <string name="no_available_network">网络未连接，请点击重试</string>
+
+
     <string name="hms_abort">终止</string>
     <string name="hms_abort_message">是否终止下载？</string>
     <string name="hms_cancel">取消</string>
@@ -168,11 +172,13 @@
     <string name="appmove_cannt_move_SD">SD 卡太满装不下啦，去清理一下吧</string>
     <string name="appmove_cannt_move_phone">手机太满装不下啦，去清理一下吧</string>
     <string name="appmove_moveapp_tosd_quickly">在内存与SD卡之间转移应用</string>
-    <string name="appmove_nosd1">"您的应用无需搬家， 手机的数据存储与内部存储共用"</string>
+    <string name="appmove_nosd1">"您的应用无需搬家，
+手机的数据存储与内部存储共用"</string>
     <string name="appmove_title">应用搬家</string>
     <string name="appmove_tophone_title">可移至手机</string>
     <string name="appmove_tosd_title">可移至 SD 卡</string>
-    <string name="appmove_versionlow1">"您的手机不支持搬家， 安卓固件版本低于3.0"</string>
+    <string name="appmove_versionlow1">"您的手机不支持搬家， 
+安卓固件版本低于3.0"</string>
     <string name="appzone_comment_count">评论 (%1$s 条)</string>
     <string name="appzone_comments">评论</string>
     <string name="appzone_may_cannot_fit_phone">在本机运行效果可能不佳</string>
@@ -382,7 +388,9 @@
     <string name="huaweipay_download_error">华为安全支付服务下载失败，请重试</string>
     <string name="huaweipay_download_success">下载成功，点击“确定”，立即安装</string>
     <string name="huaweipay_downloading_wait">下载中，请稍候</string>
-    <string name="huaweipay_install_tips_content">"为了您的交易安全，需要安装华为安全支付服务，才能进行付款。 点击“确定”，立即安装。"</string>
+    <string name="huaweipay_install_tips_content">"为了您的交易安全，需要安装华为安全支付服务，才能进行付款。
+
+点击“确定”，立即安装。"</string>
     <string name="huaweipay_install_tips_title">安装提示</string>
     <string name="huaweipay_intall_pay_service_now">正在安装华为安全支付服务，请稍侯...</string>
     <string name="huaweipay_loading">加载中...</string>
@@ -539,7 +547,8 @@
     <string name="installed_app">已安装</string>
     <string name="installed_game_manage_noapp_new">没有安装的应用</string>
     <string name="installing">安装中</string>
-    <string name="intall_pc_hisuite_hint">"如电脑尚未安装手机助手，可访问以下地址安装： http://www.huawei.com/hisuite"</string>
+    <string name="intall_pc_hisuite_hint">"如电脑尚未安装手机助手，可访问以下地址安装：
+ http://www.huawei.com/hisuite"</string>
     <string name="invalid_download_url">无效的下载地址</string>
     <string name="invalidate_url_address">URL地址错误</string>
     <string name="is_need_install_preload_apk">本机有更高版本的安装包，请直接安装。</string>
@@ -575,12 +584,16 @@
     <string name="master_dialog_bad_button_cancel">以和为贵</string>
     <string name="master_dialog_bad_button_ok">替天拍砖</string>
     <string name="master_dialog_bad_content1">砖，凶器也，乃水土混合物，经水淹火烧而成，此物性格分明，头角峥嵘，可盖房，可砸人，可自卫，就地取材，用处多多，为网友之间常规攻击性武器。本板砖将消耗您</string>
-    <string name="master_dialog_bad_content2">"，奖励您 1 点活跃度，并扣除被攻击者 1 点活跃度； 世间自有公道，拍砖总有回报！是否要拍%1$s一板砖？"</string>
+    <string name="master_dialog_bad_content2">"，奖励您 1 点活跃度，并扣除被攻击者 1 点活跃度；
+
+世间自有公道，拍砖总有回报！是否要拍%1$s一板砖？"</string>
     <string name="master_dialog_bad_title">我要拍砖</string>
     <string name="master_dialog_good_button_cancel">不只爱你</string>
     <string name="master_dialog_good_button_ok">我只爱你</string>
     <string name="master_dialog_good_content1">赞，称颂赞美也，是一种表达认同态度的方式。赞也可以解释为只爱你 (zan)。本次点击将消耗您</string>
-    <string name="master_dialog_good_content2">"，奖励您 1 点活跃度，并奖励被点赞者 1 点活跃度； 点赞是一种美德！是否要给%1$s点个赞？"</string>
+    <string name="master_dialog_good_content2">"，奖励您 1 点活跃度，并奖励被点赞者 1 点活跃度；
+
+点赞是一种美德！是否要给%1$s点个赞？"</string>
     <string name="master_dialog_good_title">我要点赞</string>
     <string name="master_dialog_pay_score">%1$s 花瓣</string>
     <string name="master_download_time_label_new">基础活跃度</string>
@@ -722,7 +735,8 @@
     <string name="plugin_huawei_e_book_create_shortcut">创建“我的书架“快捷方式</string>
     <string name="plugin_info_checksign_failed">%1$s校验失败，暂无法启用，请重试。</string>
     <string name="plugin_info_get">正在获取%1$s信息</string>
-    <string name="plugin_install_size">" 安装包大小："</string>
+    <string name="plugin_install_size">"
+安装包大小："</string>
     <string name="plugin_installing">正在启用</string>
     <string name="plugin_network_failed">网络不给力，请检查网络设置并重试</string>
     <string name="plugin_network_failed_retry">网络不给力，请检查网络设置并重试</string>
