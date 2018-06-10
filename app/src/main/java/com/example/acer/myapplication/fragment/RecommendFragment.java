@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.acer.myapplication.R;
+import com.example.acer.myapplication.View.LoadingPager;
 import com.example.acer.myapplication.base.BaseFragment;
 import com.example.acer.myapplication.utils.UIUtils;
 
@@ -41,7 +42,7 @@ public class RecommendFragment extends BaseFragment {
             @Override
             public void run() {
                 SystemClock.sleep(2000);
-                setState(LoadResult.success);
+                setState(LoadingPager.LoadResult.success);
             }
         }).start();
     }

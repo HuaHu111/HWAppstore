@@ -4,6 +4,7 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.acer.myapplication.View.LoadingPager;
 import com.example.acer.myapplication.base.BaseFragment;
 
 /**
@@ -27,7 +28,7 @@ public class TopFragment extends BaseFragment {
             @Override
             public void run() {
                 SystemClock.sleep(2000);
-                setState(LoadResult.success);
+                setState(LoadingPager.LoadResult.success);
             }
         }).start();
     }
