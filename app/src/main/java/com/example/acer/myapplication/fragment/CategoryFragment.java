@@ -1,5 +1,11 @@
 package com.example.acer.myapplication.fragment;
 
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.support.annotation.Nullable;
+import android.view.View;
+import android.widget.TextView;
+
 import com.example.acer.myapplication.base.BaseFragment;
 
 /**
@@ -7,4 +13,25 @@ import com.example.acer.myapplication.base.BaseFragment;
  */
 
 public class CategoryFragment extends BaseFragment {
+
+
+
+    @Override
+    protected View creatSuccessView() {
+        TextView textView = new TextView(getContext());
+        textView.setText(getClass().getSimpleName());
+        return textView;
+    }
+
+    @Override
+    protected void load() {
+        //网络请求操作
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SystemClock.sleep(2000);
+                setState(LoadResult.error);
+            }
+        }).start();
+    }
 }

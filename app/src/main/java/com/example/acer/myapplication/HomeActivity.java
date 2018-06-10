@@ -79,10 +79,8 @@ public class HomeActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                if (position==0){
-                    RecommendFragment fragment = (RecommendFragment) FragmentFactory.createFragment(0);
+                    BaseFragment fragment =  FragmentFactory.createFragment(position);
                     fragment.show();
-                }
             }
         });
 
