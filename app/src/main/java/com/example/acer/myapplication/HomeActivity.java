@@ -11,7 +11,9 @@ import android.widget.LinearLayout;
 
 import com.example.acer.myapplication.adapter.FixPagerAdapter;
 import com.example.acer.myapplication.base.BaseActivity;
+import com.example.acer.myapplication.base.BaseFragment;
 import com.example.acer.myapplication.factory.FragmentFactory;
+import com.example.acer.myapplication.fragment.RecommendFragment;
 
 import java.util.ArrayList;
 
@@ -73,14 +75,16 @@ public class HomeActivity extends BaseActivity {
         tabLayout.setupWithViewPager(mainViewpager);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
 
-//        mainViewpager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
-//            @Override
-//            public void onPageSelected(int position) {
-//                BaseFragment fragment = FragmentFactory.createFragment(position);
-//                fragment.show();
-//                super.onPageSelected(position);
-//            }
-//        });
+        mainViewpager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                if (position==0){
+                    RecommendFragment fragment = (RecommendFragment) FragmentFactory.createFragment(0);
+                    fragment.show();
+                }
+            }
+        });
 
 
     }

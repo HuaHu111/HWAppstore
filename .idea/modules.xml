@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HwAppstore.iml" filepath="$PROJECT_DIR$/HwAppstore.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recyclelib/recyclelib.iml" filepath="$PROJECT_DIR$/recyclelib/recyclelib.iml" />
     </modules>
   </component>
 </project>
