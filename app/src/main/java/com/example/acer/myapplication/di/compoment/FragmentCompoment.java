@@ -3,14 +3,12 @@ package com.example.acer.myapplication.di.compoment;
 import android.app.Activity;
 import android.content.Context;
 
-import com.example.acer.myapplication.di.module.AppModel;
 import com.example.acer.myapplication.di.module.FragmentModule;
 import com.example.acer.myapplication.di.scope.ContextLife;
-import com.example.acer.myapplication.di.scope.PerActivity;
 import com.example.acer.myapplication.di.scope.PerFragment;
-import com.example.acer.myapplication.fragment.CategoryFragment;
-import com.example.acer.myapplication.fragment.RecommendFragment;
-import com.example.acer.myapplication.fragment.TopFragment;
+import com.example.acer.myapplication.mvp.view.Fragment.CategoryFragment;
+import com.example.acer.myapplication.mvp.view.Fragment.RecommendFragment;
+import com.example.acer.myapplication.mvp.view.Fragment.TopFragment;
 
 import dagger.Component;
 
@@ -31,6 +29,6 @@ public interface FragmentCompoment {
 
     void inject(RecommendFragment fragment);
     void inject(CategoryFragment fragment);
-    void incect(TopFragment fragment);
+    void inject(TopFragment fragment);
 
 }

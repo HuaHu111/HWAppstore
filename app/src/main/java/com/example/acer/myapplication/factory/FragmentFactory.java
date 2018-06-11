@@ -3,11 +3,11 @@ package com.example.acer.myapplication.factory;
 
 
 import com.example.acer.myapplication.base.BaseFragment;
-import com.example.acer.myapplication.fragment.AppManagerFragment;
-import com.example.acer.myapplication.fragment.CategoryFragment;
-import com.example.acer.myapplication.fragment.MyFragment;
-import com.example.acer.myapplication.fragment.RecommendFragment;
-import com.example.acer.myapplication.fragment.TopFragment;
+import com.example.acer.myapplication.mvp.view.Fragment.AppManagerFragment;
+import com.example.acer.myapplication.mvp.view.Fragment.CategoryFragment;
+import com.example.acer.myapplication.mvp.view.Fragment.MyFragment;
+import com.example.acer.myapplication.mvp.view.Fragment.RecommendFragment;
+import com.example.acer.myapplication.mvp.view.Fragment.TopFragment;
 
 import java.util.HashMap;
 import java.util.Map;

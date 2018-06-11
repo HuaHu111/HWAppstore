@@ -3,9 +3,8 @@ package com.example.acer.myapplication.di.compoment;
 import android.app.Activity;
 import android.content.Context;
 
-import com.example.acer.myapplication.HomeActivity;
+import com.example.acer.myapplication.mvp.view.HomeActivity;
 import com.example.acer.myapplication.di.module.ActivityModule;
-import com.example.acer.myapplication.di.module.AppModel;
 import com.example.acer.myapplication.di.scope.ContextLife;
 import com.example.acer.myapplication.di.scope.PerActivity;
 

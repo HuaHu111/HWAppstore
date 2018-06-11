@@ -1,4 +1,4 @@
-package com.example.acer.myapplication;
+package com.example.acer.myapplication.mvp;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+
+import com.example.acer.myapplication.R;
 
 import java.lang.reflect.Field;
 

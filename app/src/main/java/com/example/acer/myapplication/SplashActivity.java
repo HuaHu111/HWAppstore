@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.acer.myapplication.mvp.view.HomeActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     private static final String[] PEMISSIONS_STORAGE = {

@@ -1,4 +1,4 @@
-package com.example.acer.myapplication;
+package com.example.acer.myapplication.mvp.view;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -9,11 +9,11 @@ import android.support.v4.view.ViewPager;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.acer.myapplication.R;
 import com.example.acer.myapplication.adapter.FixPagerAdapter;
 import com.example.acer.myapplication.base.BaseActivity;
 import com.example.acer.myapplication.base.BaseFragment;
 import com.example.acer.myapplication.factory.FragmentFactory;
-import com.example.acer.myapplication.fragment.RecommendFragment;
 
 import java.util.ArrayList;
 
