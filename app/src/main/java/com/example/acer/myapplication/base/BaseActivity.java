@@ -12,6 +12,7 @@ import android.view.WindowManager;
 
 import com.example.acer.myapplication.AppActivityManager;
 import com.example.acer.myapplication.R;
+import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import java.lang.reflect.Field;
 
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
  * Created by acer on 2018/6/9.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends RxAppCompatActivity {
 
     private ViewGroup bar_layout;
 

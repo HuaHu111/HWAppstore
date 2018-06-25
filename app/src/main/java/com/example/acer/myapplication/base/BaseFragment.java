@@ -23,6 +23,13 @@ public abstract class BaseFragment extends Fragment {
 
 
     private LoadingPager loadingPager;
+    public BaseActivity mActivity;
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mActivity= (BaseActivity) getActivity();
+    }
 
     @Nullable
     @Override

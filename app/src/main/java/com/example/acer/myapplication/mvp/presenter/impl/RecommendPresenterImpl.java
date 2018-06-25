@@ -2,7 +2,11 @@ package com.example.acer.myapplication.mvp.presenter.impl;
 
 import android.os.SystemClock;
 
+import com.example.acer.myapplication.api.IGetDataDelegate;
+import com.example.acer.myapplication.base.BaseActivity;
 import com.example.acer.myapplication.base.mvpBase.BasePresenterImpl;
+import com.example.acer.myapplication.bean.RecommendBean;
+import com.example.acer.myapplication.mvp.interactor.RecommendInterator;
 import com.example.acer.myapplication.mvp.presenter.RecommendFragmentPresenter;
 import com.example.acer.myapplication.mvp.view.View.RecommendFragmentView;
 
@@ -14,6 +18,9 @@ import javax.inject.Inject;
 
 public class RecommendPresenterImpl extends BasePresenterImpl<RecommendFragmentView> implements RecommendFragmentPresenter{
 
+    @Inject
+    RecommendInterator recommendInterator;
+
 
     @Inject
     public RecommendPresenterImpl(){
@@ -21,14 +28,19 @@ public class RecommendPresenterImpl extends BasePresenterImpl<RecommendFragmentV
     }
 
     @Override
-    public void getRecommendData() {
+    public void getRecommendData(BaseActivity activity) {
 //        网络请求操作
-        new Thread(new Runnable() {
+        recommendInterator.loadRecommendData(activity, new IGetDataDelegate<RecommendBean>() {
             @Override
-            public void run() {
-                SystemClock.sleep(2000);
-               mPresenterView.onRecommendDataSuccesss();
+            public void getDataSuccess(RecommendBean recommendBean) {
+                mPresenterView.onRecommendDataSuccesss(recommendBean);
             }
-        }).start();
+
+            @Override
+            public void getDataError(String errmsg) {
+                mPresenterView.onRecommendAtaError(errmsg);
+            }
+        });
+
     }
 }
