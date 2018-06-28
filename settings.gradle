@@ -1,1 +1,1 @@
-include ':app', ':recyclelib', ':rxretrofitlibrary'
+include ':app', ':recyclelib', ':rxretrofitlibrary', ':recyclerviewlibrary'
