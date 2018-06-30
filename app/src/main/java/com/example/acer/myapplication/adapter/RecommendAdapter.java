@@ -83,7 +83,7 @@ public class RecommendAdapter extends MultiItemTypeAdapter<RecommendBean.Recomme
         @Override
         public void convert(ViewHolder holder, RecommendBean.RecommendAppBean recommendAppBean, int position) {
             holder.setImageUrl(R.id.iv_ad1,recommendAppBean.getIconList().get(0));
-            holder.setImageUrl(R.id.iv_ad1,recommendAppBean.getIconList().get(1));
+            holder.setImageUrl(R.id.iv_ad2,recommendAppBean.getIconList().get(1));
         }
     }
 

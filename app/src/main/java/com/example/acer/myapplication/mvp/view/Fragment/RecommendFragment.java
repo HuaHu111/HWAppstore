@@ -12,11 +12,16 @@ import android.view.ViewGroup;
 import com.example.acer.myapplication.R;
 import com.example.acer.myapplication.View.LoadingPager;
 import com.example.acer.myapplication.adapter.RecommendAdapter;
+import com.example.acer.myapplication.adapter.top.RecommendTopWrapper;
 import com.example.acer.myapplication.base.mvpBase.BaseMvpFragment;
 import com.example.acer.myapplication.bean.RecommendBean;
 import com.example.acer.myapplication.mvp.presenter.impl.RecommendPresenterImpl;
 import com.example.acer.myapplication.mvp.view.View.RecommendFragmentView;
 import com.example.acer.myapplication.utils.UIUtils;
+import com.zhxu.recyclerview.pullrefresh.PullToRefreshView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -33,12 +38,19 @@ public class RecommendFragment extends BaseMvpFragment<RecommendPresenterImpl> i
 
     private static final String TAG = "RMB";
 
+    @BindView(R.id.rv_recommend)
     RecyclerView rv;
+    @BindView(R.id.ptr)
+    PullToRefreshView ptr;
 
     private RecommendBean recommendBean;
 
     @Inject
     public RecommendPresenterImpl recommendPresenter;
+
+    private List<RecommendBean.RecommendAppBean> appBeanList=new ArrayList<>();
+    private RecommendAdapter adapter;
+    private RecommendTopWrapper topWrapper;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -48,11 +60,31 @@ public class RecommendFragment extends BaseMvpFragment<RecommendPresenterImpl> i
 
     @Override
     protected View creatSuccessView() {
-        View view = UIUtils.inflate(R.layout.fragment_app_recommend);
-        rv=view.findViewById(R.id.rv);
+        View view = UIUtils.inflate(R.layout.fragment_recommend);
+        ButterKnife.bind(this,view);
+
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        RecommendAdapter adapter = new RecommendAdapter(getContext(), recommendBean.getRecommendAppBeanList());
-        rv.setAdapter(adapter);
+        adapter = new RecommendAdapter(getContext(), recommendBean.getRecommendAppBeanList());
+
+        topWrapper = new RecommendTopWrapper(getContext(), adapter);
+        topWrapper.addData(recommendBean.getBannerList());
+        rv.setAdapter(topWrapper);
+
+
+        ptr.setPullDownEnable(false);
+        ptr.setListener(new PullToRefreshView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //下啦刷新
+            }
+
+            @Override
+            public void onLoadMore() {
+                //上啦加载更多
+                recommendPresenter.getMoreRecommendData(mActivity);
+            }
+        });
+
         return view;
     }
 
@@ -63,9 +95,20 @@ public class RecommendFragment extends BaseMvpFragment<RecommendPresenterImpl> i
 
     @Override
     public void onRecommendDataSuccesss(RecommendBean recommendBean) {
-        Log.i(TAG, recommendBean.getBannerList().size() + "个");
         setState(LoadingPager.LoadResult.success);
         this.recommendBean = recommendBean;
+    }
+
+    @Override
+    public void onMoreRecommendData(RecommendBean recommendBean) {
+        appBeanList.addAll(recommendBean.getRecommendAppBeanList());
+        //将原先的数据情况
+        adapter.clearData();
+        //添加新的数据
+        adapter.addDataAll(appBeanList);
+        //刷新数据
+        topWrapper.notifyDataSetChanged();
+        ptr.onFinishLoading();
     }
 
     @Override

@@ -12,6 +12,6 @@ public interface RecommendFragmentView extends BaseView
 
 
     void onRecommendDataSuccesss(RecommendBean recommendBean);
-
+    void onMoreRecommendData(RecommendBean recommendBean);
     void onRecommendAtaError(String msg);
 }

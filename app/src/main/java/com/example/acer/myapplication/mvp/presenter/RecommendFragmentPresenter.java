@@ -14,4 +14,10 @@ public interface RecommendFragmentPresenter extends BasePresenter<RecommendFragm
      * 获取推荐数据
      */
     void getRecommendData(BaseActivity activity);
+
+
+    /**
+     * 加载更多
+     */
+    void getMoreRecommendData(BaseActivity activity);
 }
