@@ -11,6 +11,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.acer.myapplication.R;
+import com.example.acer.myapplication.View.LoadingPager;
+import com.example.acer.myapplication.View.widge.FlowLayout;
+import com.example.acer.myapplication.View.widge.FoldingTextView;
+import com.example.acer.myapplication.base.mvpBase.BaseMvpFragment;
+import com.example.acer.myapplication.bean.AppIntroductionBean;
+import com.example.acer.myapplication.mvp.presenter.impl.AppIntroductionPresenterImpl;
+import com.example.acer.myapplication.mvp.view.Activity.AppDetailActivity;
+import com.example.acer.myapplication.mvp.view.Activity.GalleryActivity;
+import com.example.acer.myapplication.mvp.view.View.AppIntroductionFragmentView;
+import com.example.acer.myapplication.utils.UIUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +37,107 @@ import butterknife.ButterKnife;
  * @author xzhang
  */
 
-public class AppIntroductionFragment extends Fragment {
+public class AppIntroductionFragment extends BaseMvpFragment<AppIntroductionPresenterImpl> implements AppIntroductionFragmentView,View.OnClickListener{
+    @BindView(R.id.app_detail_gallery_container_linearlayout)
+    LinearLayout app_detail_gallery_container ;
+    @BindView(R.id.detail_appinfo_tariff_textview)
+    TextView appInfoTariff ;
+    @BindView(R.id.detail_appinfo_size_textview)
+    TextView appInfoSize ;
+    @BindView(R.id.detail_appinfo_version_textview)
+    TextView appInfoVersion ;
+    @BindView(R.id.detail_appinfo_release_date_textview)
+    TextView appInfoDate ;
+    @BindView(R.id.appdetail_appinfo_developer_textview)
+    TextView appInfoDeveloper ;
+    @BindView(R.id.ll)
+    LinearLayout appInfoDes ;
+    @BindView(R.id.flowLayout)
+    FlowLayout flowLayout ;
+
+   @Inject
+   public AppIntroductionPresenterImpl appIntroductionPresenter;
+   private String packageName;
+    private AppIntroductionBean mAppIntroductionBean;
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        packageName=((AppDetailActivity)getActivity()).getPackageName();
+        show();
+    }
+
+    @Override
+    public void onAppIntroductionDataSuccess(AppIntroductionBean appIntroductionBean) {
+        setState(LoadingPager.LoadResult.success);
+        this.mAppIntroductionBean=appIntroductionBean;
+    }
+
+    @Override
+    public void onAppIntroductionDataFail(String msg) {
+        setState(LoadingPager.LoadResult.error);
+    }
+
+    @Override
+    protected AppIntroductionPresenterImpl initInjector() {
+        mFragmentComponent.inject(this);
+        return appIntroductionPresenter;
+    }
+
+    @Override
+    protected View creatSuccessView() {
+        View view= UIUtils.inflate(R.layout.fragment_app_introduction);
+        ButterKnife.bind(this,view);
+        for(int i = 0 ;i < mAppIntroductionBean.getImageCompressList().size() ; i ++){
+            String url = mAppIntroductionBean.getImageCompressList().get(i);
+            View screenView = View.inflate(getContext(),R.layout.appdetail_item_screen_image,null) ;
+            ImageView screenImageView = (ImageView) screenView.findViewById(R.id.appdetail_screen_img_imageview);
+            screenImageView.setContentDescription(screenImageView.getResources().getString(R.string.appdetail_screenshot));
+            screenImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            screenView.setOnClickListener(this);
+            screenView.setTag(i);
+            Glide.with(UIUtils.getContext()).load(url).into(screenImageView);
+            app_detail_gallery_container.addView(screenView);
+        }
+
+        appInfoTariff.setText(mAppIntroductionBean.getAppInfoBean().getTariffDesc());
+        appInfoSize.setText(Formatter.formatFileSize(getContext(),Long.parseLong(mAppIntroductionBean.getAppInfoBean().getSize())));
+        appInfoDate.setText(mAppIntroductionBean.getAppInfoBean().getReleaseDate());
+        appInfoVersion.setText(mAppIntroductionBean.getAppInfoBean().getVersion());
+        appInfoDeveloper.setText(mAppIntroductionBean.getAppInfoBean().getDeveloper());
+
+        for(int i = 0 ; i < mAppIntroductionBean.getAppDetailInfoBeanList().size() ; i ++){
+            FoldingTextView foldingTextView = new FoldingTextView(getContext()) ;
+            foldingTextView.setTitle(mAppIntroductionBean.getAppDetailInfoBeanList().get(i).getTitle());
+            foldingTextView.setContent(mAppIntroductionBean.getAppDetailInfoBeanList().get(i).getBody());
+            appInfoDes.addView(foldingTextView);
+        }
+
+        List<String> tagList = mAppIntroductionBean.getTagList();
+        for(int i = 0 ; i < tagList.size() ; i ++){
+            View labView = UIUtils.inflate(R.layout.appdetail_item_label_item) ;
+            TextView tv = (TextView) labView.findViewById(R.id.appdetail_label_content_textview);
+            tv.setText(tagList.get(i));
+            flowLayout.addView(labView);
+        }
+        return view;
+    }
+
+    @Override
+    protected void load() {
+        appIntroductionPresenter.getAppIntroductionData(mActivity,packageName);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int tag = (int) v.getTag();
+        List<String> images = mAppIntroductionBean.getImagesList();
+        Intent intent = new Intent(getContext(), GalleryActivity.class);
+        intent.putExtra("tag",tag) ;
+        intent.putStringArrayListExtra("urlList", (ArrayList<String>) images);
+        getActivity().startActivity(intent) ;
+    }
+
 
 //    @BindView(R.id.app_detail_gallery_container_linearlayout)
 //    LinearLayout app_detail_gallery_container ;

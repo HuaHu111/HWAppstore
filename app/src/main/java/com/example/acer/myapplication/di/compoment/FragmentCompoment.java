@@ -6,6 +6,7 @@ import android.content.Context;
 import com.example.acer.myapplication.di.module.FragmentModule;
 import com.example.acer.myapplication.di.scope.ContextLife;
 import com.example.acer.myapplication.di.scope.PerFragment;
+import com.example.acer.myapplication.mvp.view.Fragment.AppIntroductionFragment;
 import com.example.acer.myapplication.mvp.view.Fragment.CategoryFragment;
 import com.example.acer.myapplication.mvp.view.Fragment.RecommendFragment;
 import com.example.acer.myapplication.mvp.view.Fragment.TopFragment;
@@ -30,5 +31,6 @@ public interface FragmentCompoment {
     void inject(RecommendFragment fragment);
     void inject(CategoryFragment fragment);
     void inject(TopFragment fragment);
+    void inject(AppIntroductionFragment fragment);
 
 }

@@ -21,9 +21,13 @@
             </intent-filter>
         </activity>
 
+
         <activity android:name=".mvp.MainActivity"/>
         <activity android:name=".mvp.view.Activity.HomeActivity"/>
         <activity android:name=".mvp.view.Activity.AppDetailActivity"/>
+        <activity android:name="com.example.acer.myapplication.mvp.view.Activity.GalleryActivity"/>
+
+
     </application>
 
 </manifest>

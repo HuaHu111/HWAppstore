@@ -126,6 +126,8 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
         }else {
             if (downInfo.getState()==DownState.DOWN){
                 detail_download_button.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_DOWNLOADING);
+                downInfo.setListener(downListener);
+                manager.startDown(downInfo);
             }else if (downInfo.getState()== DownState.PAUSE){
                 detail_download_button.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_PAUSE);
             }else if (downInfo.getState()==DownState.FINISH){
@@ -278,5 +280,9 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
         if (dbDownUtil!=null&&downInfo!=null){
             dbDownUtil.update(downInfo);
         }
+    }
+
+    public String getPackageName(){
+        return packageName;
     }
 }
