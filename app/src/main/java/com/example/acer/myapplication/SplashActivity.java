@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.acer.myapplication.mvp.view.HomeActivity;
+import com.example.acer.myapplication.mvp.view.Activity.HomeActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

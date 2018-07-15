@@ -17,7 +17,7 @@ import com.example.acer.myapplication.di.module.ActivityModule;
 public abstract class  BaseMvpActivity<T extends BasePresenter> extends BaseActivity implements BaseView {
 
 
-    protected ActivityComponment activityComponment;
+    protected ActivityComponment mActivityComponent;
     private T mPresenter;
 
     //通过dagger2注入的是Presenter
@@ -28,11 +28,14 @@ public abstract class  BaseMvpActivity<T extends BasePresenter> extends BaseActi
         initActivityComponent();
         mPresenter = initInjector();
         mPresenter.attachView(this);
+        initData();
     }
+
+    protected abstract void initData();
 
 
     public void initActivityComponent(){
-        activityComponment = DaggerActivityComponment.builder()
+        mActivityComponent = DaggerActivityComponment.builder()
                 .activityModule(new ActivityModule(this))
                 .appCompoment(((StoreApplication) getApplication()).getAppCompoment())
                 .build();

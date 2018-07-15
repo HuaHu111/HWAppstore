@@ -1,4 +1,4 @@
-package com.example.acer.myapplication.mvp.view;
+package com.example.acer.myapplication.mvp.view.Activity;
 
 import android.os.Build;
 import android.os.Bundle;

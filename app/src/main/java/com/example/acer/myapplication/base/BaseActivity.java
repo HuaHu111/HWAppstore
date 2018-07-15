@@ -49,11 +49,11 @@ public class BaseActivity extends RxAppCompatActivity {
 
 
     //设置沉浸式状态栏
-    private void setStatus(){
+    public void setStatus(){
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT){
             //设置状态栏透明
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 
             bar_layout= (ViewGroup) findViewById(R.id.bar_layout);
             if (bar_layout!=null){

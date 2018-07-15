@@ -1,5 +1,6 @@
 package com.example.acer.myapplication.mvp.view.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +17,7 @@ import com.example.acer.myapplication.adapter.top.RecommendTopWrapper;
 import com.example.acer.myapplication.base.mvpBase.BaseMvpFragment;
 import com.example.acer.myapplication.bean.RecommendBean;
 import com.example.acer.myapplication.mvp.presenter.impl.RecommendPresenterImpl;
+import com.example.acer.myapplication.mvp.view.Activity.AppDetailActivity;
 import com.example.acer.myapplication.mvp.view.View.RecommendFragmentView;
 import com.example.acer.myapplication.utils.UIUtils;
 import com.zhxu.recyclerview.pullrefresh.PullToRefreshView;
@@ -82,6 +84,15 @@ public class RecommendFragment extends BaseMvpFragment<RecommendPresenterImpl> i
             public void onLoadMore() {
                 //上啦加载更多
                 recommendPresenter.getMoreRecommendData(mActivity);
+            }
+        });
+
+        adapter.setAppItemClickListener(new RecommendAdapter.AppItemClickListener() {
+            @Override
+            public void goAppDetail(String packageName) {
+               Intent intent=new Intent(mActivity,AppDetailActivity.class);
+                intent.putExtra("packageName",packageName);
+                mActivity.startActivity(intent);
             }
         });
 

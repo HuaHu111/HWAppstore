@@ -44,8 +44,8 @@ public interface HttpGetService {
     @GET("app/{type}")
     Observable<ResponseBody> getAppMoreRecommendData(@Path("type") String type, @Query("packageName") String packageName);
 
-    @GET("app/introduce")
-    Observable<ResponseBody> getAppDetailData(@Query("packageName") String packageName);
+    @GET("{packageName}/introduce")
+    Observable<ResponseBody> getAppDetailData(@Path("packageName") String packageName);
 
     @GET("app/comment")
     Observable<ResponseBody> getAppCommentData(@Query("packageName") String packageName);

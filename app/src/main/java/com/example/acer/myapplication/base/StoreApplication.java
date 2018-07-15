@@ -2,10 +2,12 @@ package com.example.acer.myapplication.base;
 
 import android.os.Handler;
 
+import com.example.acer.myapplication.BuildConfig;
 import com.example.acer.myapplication.di.compoment.AppCompoment;
 import com.example.acer.myapplication.di.compoment.DaggerAppCompoment;
 import com.example.acer.myapplication.di.module.AppModel;
 import com.example.recyclelib.App;
+import com.zhxu.library.RxRetrofitApp;
 
 
 /**
@@ -25,6 +27,7 @@ public class StoreApplication extends App {
 
         mhandler = new Handler();
         iniApplicationComponent();
+        RxRetrofitApp.init(this, BuildConfig.DEBUG);
     }
 
     

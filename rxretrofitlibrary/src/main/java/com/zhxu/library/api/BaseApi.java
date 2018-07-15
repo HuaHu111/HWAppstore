@@ -30,7 +30,7 @@ public abstract class BaseApi<T> implements Func1<ResponseBody, T> {
     private boolean cache;
     /*基础url*/
 //    private String baseUrl = "http://192.168.31.64:8080/";
-    private String baseUrl = "http://192.168.31.64:8080/AppStore/";
+    private String baseUrl = "http://192.168.137.1:8080/AppStore/";
     /*方法-如果需要缓存必须设置这个参数；不需要不用設置*/
     private String mothed;
     /*超时时间-默认6秒*/

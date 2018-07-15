@@ -3,10 +3,12 @@ package com.example.acer.myapplication.di.compoment;
 import android.app.Activity;
 import android.content.Context;
 
-import com.example.acer.myapplication.mvp.view.HomeActivity;
+import com.example.acer.myapplication.mvp.view.Activity.AppDetailActivity;
+import com.example.acer.myapplication.mvp.view.Activity.HomeActivity;
 import com.example.acer.myapplication.di.module.ActivityModule;
 import com.example.acer.myapplication.di.scope.ContextLife;
 import com.example.acer.myapplication.di.scope.PerActivity;
+import com.example.acer.myapplication.mvp.view.View.AppDetialActivityView;
 
 import dagger.Component;
 
@@ -26,5 +28,6 @@ public interface ActivityComponment {
     Activity getActivity();
 
     void inject(HomeActivity activity);
+    void inject(AppDetailActivity appDetailActivity);
 
 }
